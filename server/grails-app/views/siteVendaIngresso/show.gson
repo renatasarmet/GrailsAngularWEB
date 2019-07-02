@@ -1,0 +1,7 @@
+import br.ufscar.dc.dsw.SiteVendaIngresso
+
+model {
+	SiteVendaIngresso siteVendaIngresso
+}
+
+json tmpl.siteVendaIngresso(siteVendaIngresso)

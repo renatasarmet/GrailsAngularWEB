@@ -1,0 +1,7 @@
+import br.ufscar.dc.dsw.Teatro
+
+model {
+	Teatro teatro
+}
+
+json g.render(teatro, [resolveTemplate: false])

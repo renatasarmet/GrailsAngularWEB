@@ -1,0 +1,8 @@
+import br.ufscar.dc.dsw.SiteVendaIngresso
+
+model {
+	Iterable<SiteVendaIngresso> siteVendaIngressoList
+}
+
+json tmpl.siteVendaIngresso(siteVendaIngressoList ?: [])
+

@@ -3,31 +3,71 @@
 # suggested that you use the "grails integrate-with --git" command
 # to generate your .gitignore file.
 
+*.DS_Store
+
 # web application files
-/web-app/WEB-INF/classes
+server/web-app/WEB-INF/classes
 
 # default HSQL database files for production mode
-/prodDb.*
+server/prodDb.*
 
 # general HSQL database files
 *Db.properties
 *Db.script
 
 # logs
-/stacktrace.log
-/test/reports
-/logs
+server/stacktrace.log
+server/test/reports
+server/logs
 
 # project release file
-/*.war
+server/*.war
 
 # plugin release files
-/*.zip
-/plugin.xml
+server/*.zip
+server/plugin.xml
 
 # older plugin install locations
-/plugins
-/web-app/plugins
+server/plugins
+server/web-app/plugins
 
 # "temporary" build files
-/target
+server/target
+
+
+client/dist/
+client/bazel-out
+client/integration/bazel/bazel-*
+client/e2e_test.*
+client/node_modules
+client/tools/gulp-tasks/cldr/cldr-data/
+
+# Include when developing application packages.
+client/pubspec.lock
+client/.c9
+.idea/
+client/.devcontainer/*
+client/!.devcontainer/recommended-devcontainer.json
+client/!.devcontainer/recommended-Dockerfile
+.settings/
+.vscode/launch.json
+.vscode/settings.json
+client/*.swo
+modules/.settings
+modules/.vscode
+
+# Don't check in secret files
+*secret.js
+
+# Ignore npm/yarn debug log
+client/npm-debug.log
+client/yarn-error.log
+
+# build-analytics
+client/.build-analytics
+
+# rollup-test output
+client/modules/rollup-test/dist/
+
+# User specific bazel settings
+client/.bazelrc.user
