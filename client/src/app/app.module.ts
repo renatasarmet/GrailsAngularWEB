@@ -27,6 +27,10 @@ import { SiteCadastroComponent } from './components/site-cadastro/site-cadastro.
 import { SiteDetalhesComponent } from './components/site-detalhes/site-detalhes.component';
 import { SiteEdicaoComponent } from './components/site-edicao/site-edicao.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PromocaoComponent } from './components/promocao/promocao.component';
+import { PromocaoCadastroComponent } from './components/promocao-cadastro/promocao-cadastro.component';
+import { PromocaoDetalhesComponent } from './components/promocao-detalhes/promocao-detalhes.component';
+import { PromocaoEdicaoComponent } from './components/promocao-edicao/promocao-edicao.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SitesComponent,
     SiteCadastroComponent,
     SiteDetalhesComponent,
-    SiteEdicaoComponent
+    SiteEdicaoComponent,
+    PromocaoComponent,
+    PromocaoCadastroComponent,
+    PromocaoDetalhesComponent,
+    PromocaoEdicaoComponent
   ],
   imports: [
     BrowserModule,
