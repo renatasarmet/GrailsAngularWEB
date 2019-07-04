@@ -1,1 +1,34 @@
-<p>site-detalhes works!</p>
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/sites']">
+            <mat-icon>list</mat-icon>
+        </a>
+    </div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{site.id}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{site.url}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>nome:</dt>
+                <dd>{{site.nome}}</dd>
+                <dt>telefone:</dt>
+                <dd>{{site.telefone}}</dd>
+            </dl>
+        </mat-card-content>
+        <mat-card-actions>
+            <a mat-flat-button color="primary" [routerLink]="['/site-edicao', site.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+            <a mat-flat-button color="warn" (click)="deleteSiteVendaIngresso(site.id)">
+                <mat-icon>delete</mat-icon>
+            </a>
+        </mat-card-actions>
+    </mat-card>
+</div>
