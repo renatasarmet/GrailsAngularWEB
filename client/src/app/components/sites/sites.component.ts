@@ -8,7 +8,7 @@ import { SiteVendaIngresso } from '../../models/site';
   styleUrls: ['./sites.component.css']
 })
 export class SitesComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'url', 'nome', 'telefone']
+  displayedColumns: string[] = ['url', 'nome', 'telefone']
   sites: SiteVendaIngresso[]
   isLoadingResults = true;
 

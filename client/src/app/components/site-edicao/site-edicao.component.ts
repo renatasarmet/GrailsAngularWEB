@@ -31,7 +31,6 @@ export class SiteEdicaoComponent implements OnInit {
     let site: SiteVendaIngresso = await this.api.getSiteVendaIngresso(id).toPromise();
     this.id = site.id;
     this.siteForm.setValue({
-      id: site.id,
       url: site.url,
       nome: site.nome,
       telefone: site.telefone,
