@@ -3,7 +3,7 @@
         <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
     </div>
     <div class="button-row">
-        <a mat-flat-button color="primary" (click)="siteDetalhes()">
+        <a mat-flat-button color="primary" (click)="siteVendaIngressoDetalhes()">
             <mat-icon>info</mat-icon>
         </a>
     </div>
@@ -16,13 +16,13 @@
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="nome" type="number" formControlName="nome" min=1950 [errorStateMatcher]="matcher">
+                <input matInput placeholder="nome" formControlName="nome" [errorStateMatcher]="matcher">
                 <mat-error>
                     <span *ngIf="!siteForm.get('nome').valid && siteForm.get('nome').touched">Por favor entre com o nome</span>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="telefone" type="number" formControlName="telefone" min=0.01 [errorStateMatcher]="matcher">
+                <input matInput placeholder="telefone" formControlName="telefone" [errorStateMatcher]="matcher">
                 <mat-error>
                     <span *ngIf="!siteForm.get('telefone').valid && siteForm.get('telefone').touched">Por favor entre com o telefone</span>
                 </mat-error>

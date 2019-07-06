@@ -10,6 +10,7 @@ import { SiteVendaIngresso } from 'src/app/models/site';
   styleUrls: ['./site-edicao.component.css']
 })
 export class SiteEdicaoComponent implements OnInit {
+  
   siteForm: FormGroup;
   id: string = '';
   isLoadingResults = true;
@@ -19,7 +20,6 @@ export class SiteEdicaoComponent implements OnInit {
   ngOnInit() {
     this.isLoadingResults = true;
     this.siteForm = this.formBuilder.group({
-      id: [null, Validators.required],
       url: [null, Validators.required],
       nome: [null, Validators.required],
       telefone: [null, Validators.required],
@@ -37,6 +37,20 @@ export class SiteEdicaoComponent implements OnInit {
     });
     this.isLoadingResults = false;
     console.debug('No issues, I will wait until promise is resolved..');
+  }
+
+  onFormSubmit(form:NgForm) {
+    this.isLoadingResults = true;
+    this.api.updateSiteVendaIngresso(this.id, form)
+      .subscribe(res => {
+          let id = res['id'];
+          this.isLoadingResults = false;
+          this.router.navigate(['/site-detalhes', id]);
+        }, (err) => {
+          console.log(err);
+          this.isLoadingResults = false;
+        }
+      );
   }
 
   siteVendaIngressoDetalhes() {
