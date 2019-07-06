@@ -12,6 +12,7 @@ import { PromocaoComponent } from './components/promocao/promocao.component';
 import { PromocaoDetalhesComponent } from './components/promocao-detalhes/promocao-detalhes.component';
 import { PromocaoCadastroComponent } from './components/promocao-cadastro/promocao-cadastro.component';
 import { PromocaoEdicaoComponent } from './components/promocao-edicao/promocao-edicao.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,9 @@ const routes: Routes = [
   },
   {
     path:'promocao-edicao/:id', component: PromocaoEdicaoComponent, data:{title:'Edicao de Promocao'}
+  },
+  {
+    path: 'login', component: LoginComponent, data: { title: 'Login' }
   },
   {
     path:'', redirectTo:'/teatros', pathMatch:'full'
