@@ -31,7 +31,7 @@ class BootStrap {
         s.save()
         UserRole.create(s, roleSite, true)
 	
-        Promocao p = new Promocao(site_venda_ingresso:s, teatro: t, nome:'Promoca', preco:10.0, data_sessao:'12/12/2018', horario_sessao:'12:12')
+        Promocao p = new Promocao(nome: 'Promoca', preco:10.10, site:s, teatro:t, data:'12/02/2019', horario:'21:00')
         p.save()
         
     }

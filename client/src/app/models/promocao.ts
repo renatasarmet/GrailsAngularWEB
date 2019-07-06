@@ -1,12 +1,12 @@
-import { SiteVendaIngresso } from './site';
 import { Teatro } from './teatro';
+import { SiteVendaIngresso } from './site';
 
 export class Promocao {
-	id: string;
-	nome: string;
-	preco: number;
-	teatro: Teatro;
-	site: SiteVendaIngresso;
-	data_sessao: string;
-	horario_sessao: string;
+    id: string;
+    nome: string;
+    preco: number;
+    site: SiteVendaIngresso;
+    teatro: Teatro;
+    data: string;
+    horario: string;
 }

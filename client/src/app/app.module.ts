@@ -29,7 +29,7 @@ import { SiteCadastroComponent } from './components/site-cadastro/site-cadastro.
 import { SiteDetalhesComponent } from './components/site-detalhes/site-detalhes.component';
 import { SiteEdicaoComponent } from './components/site-edicao/site-edicao.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PromocaoComponent } from './components/promocao/promocao.component';
+import { PromocoesComponent } from './components/promocoes/promocoes.component';
 import { PromocaoCadastroComponent } from './components/promocao-cadastro/promocao-cadastro.component';
 import { PromocaoDetalhesComponent } from './components/promocao-detalhes/promocao-detalhes.component';
 import { PromocaoEdicaoComponent } from './components/promocao-edicao/promocao-edicao.component';
@@ -47,7 +47,7 @@ import { LoginComponent } from './components/login/login.component';
     SiteCadastroComponent,
     SiteDetalhesComponent,
     SiteEdicaoComponent,
-    PromocaoComponent,
+    PromocoesComponent,
     PromocaoCadastroComponent,
     PromocaoDetalhesComponent,
     PromocaoEdicaoComponent,
