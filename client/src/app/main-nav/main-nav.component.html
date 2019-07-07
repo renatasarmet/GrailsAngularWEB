@@ -1,0 +1,78 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar></mat-toolbar>
+        <mat-nav-list>
+            <ng-template [ngIf]="role == 'ROLE_SITE'">
+                <a mat-list-item [routerLink]="['/promocoes']">
+                  Promocoes
+                </a>
+                <a mat-list-item [routerLink]="['/promocao-cadastro']">
+                  Cadastrar promoção
+                </a>
+            </ng-template>
+
+            <ng-template [ngIf]="role == 'ROLE_TEATRO'">
+                <a mat-list-item [routerLink]="['/promocoes']">
+                    Promocoes
+                </a>
+            </ng-template>
+
+            <ng-template [ngIf]="role == 'ROLE_ADMIN'">
+                <a mat-list-item [routerLink]="['/sites']">
+                  Sites
+                </a>
+                <a mat-list-item [routerLink]="['/teatros']">
+                  Teatros
+                </a>
+                <a mat-list-item [routerLink]="['/promocoes']">
+                  Promocoes
+                </a>
+
+                <a mat-list-item [routerLink]="['/site-cadastro']">
+                  Cadastrar site
+                </a>
+                <a mat-list-item [routerLink]="['/teatro-cadastro']">
+                  Cadastrar teatro
+                </a>
+            </ng-template>
+
+            <ng-template [ngIf]="role == ''">
+                <a mat-list-item [routerLink]="['/sites']">
+                  Sites
+                </a>
+                <a mat-list-item [routerLink]="['/teatros']">
+                  Teatros
+                </a>
+                <a mat-list-item [routerLink]="['/promocoes']">
+                  Promocoes
+                </a>
+            </ng-template>
+
+            <ng-template mat-flat-item [ngIf]="loggedIn">
+                <a mat-flat-button color="primary" style="color: white" (click)="logout()">
+                    Logout
+                </a>
+            </ng-template>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span>
+                <div style="text-align:center">
+                    <h1>Projeto WEB 3</h1>
+                </div>
+            </span>
+            <span class="spacer"></span>
+            <span>
+              <div style="text-align:center">
+                  <b>Olá, </b><h2>'{{ username }}'</h2>
+              </div>
+            </span>
+        </mat-toolbar>
+
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>

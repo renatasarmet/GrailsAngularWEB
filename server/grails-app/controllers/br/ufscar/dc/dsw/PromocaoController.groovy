@@ -11,13 +11,13 @@ class PromocaoController extends RestfulController {
         super(Promocao)
     }
 
-    @Secured(['ROLE_TEATRO', 'ROLE_SITE'])
+    @Secured(['ROLE_TEATRO', 'ROLE_SITE', 'ROLE_ADMIN'])
     @Override
     def index(Integer max) {
         super.index(max)
     }
 
-    @Secured(['ROLE_TEATRO', 'ROLE_SITE'])
+    @Secured(['ROLE_TEATRO', 'ROLE_SITE', 'ROLE_ADMIN'])
     @Override
     def show() {
         super.show()

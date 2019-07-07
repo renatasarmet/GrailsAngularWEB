@@ -1,25 +1,21 @@
-<div style="text-align:center">
-    <h1>
-        Projeto WEB 3
-    </h1>
-
-    <img [src]="'assets/livro.jpeg'" alt="image">
-
-</div>
-
-<ng-template [ngIf]="loggedIn">
-    <div class="logout" style="text-align:right">
-        <mat-card-actions>
-            <button mat-flat-button color="primary" style="color: white" (click)="logout()">Logout</button>
-        </mat-card-actions>
+<app-main-nav>
+    <div>
+        <!-- <ng-template [ngIf]="loggedIn">
+            <div class="logout" style="text-align:right">
+                <mat-card-actions>
+                    <a mat-flat-button color="primary" style="color: white" (click)="logout()">
+                        Logout
+                    </a>
+                </mat-card-actions>
+            </div>
+        </ng-template> -->
+        <p></p>
+        <div class="alert-box">
+            <app-alert></app-alert>
+        </div>
+        <p></p>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
     </div>
-</ng-template>
-
-<p></p>
-<div class="alert-box">
-    <app-alert></app-alert>
-</div>
-<p></p>
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
+</app-main-nav>

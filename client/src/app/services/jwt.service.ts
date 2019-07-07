@@ -15,6 +15,8 @@ export class JWTService {
     const url = 'http://localhost:8080/GrailsAngularWEBRS/api/login';
     return this.httpClient.post<Authentication> (url, {username, password}).pipe(tap(res=> {
       res.when = new Date();
+      localStorage.setItem('username', username);
+      localStorage.setItem('role', res.roles.toString()); // Cada usuario vai ter apenas uma role
       localStorage.setItem('authentication', JSON.stringify(res));
       localStorage.setItem('access_token', res.access_token);
       localStorage.setItem('refresh_token', res.refresh_token);

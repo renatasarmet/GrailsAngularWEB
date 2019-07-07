@@ -15,7 +15,7 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule } from "@angular/material";
+  MatFormFieldModule, MatToolbarModule, MatSidenavModule, MatListModule } from "@angular/material";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +35,8 @@ import { PromocaoDetalhesComponent } from './components/promocao-detalhes/promoc
 import { PromocaoEdicaoComponent } from './components/promocao-edicao/promocao-edicao.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { LoginComponent } from './components/login/login.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { LoginComponent } from './components/login/login.component';
     PromocaoDetalhesComponent,
     PromocaoEdicaoComponent,
     AlertComponent,
-    LoginComponent
+    LoginComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +83,11 @@ import { LoginComponent } from './components/login/login.component';
         blacklistedRoutes: ['http://localhost:8080/GrailsAngularWEBRS/api/login',
           'http://localhost:8080/GrailsAngularWEBRS/oauth/access_token']
       }
-    })
+    }),
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

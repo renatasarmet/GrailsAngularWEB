@@ -56,7 +56,7 @@ const routes: Routes = [
     path: 'login', component: LoginComponent, data: { title: 'Login' }
   },
   {
-    path:'', redirectTo:'/teatros', pathMatch:'full'
+    path:'', redirectTo:'/', pathMatch:'full'
   }
 ];
 
