@@ -127,6 +127,13 @@ export class ApiService {
       catchError(this.handleError<Promocao>(`getPromocao id=${id}`))
     );
   }
+  getPromocaoData(data: String): Observable<Promocao> {
+    const url = `${apiUrl}/promocoes/${data}`;
+    return this.http.get<Promocao>(url).pipe(
+      tap(_ => console.log(`getPromocao data=${data}`)),
+      catchError(this.handleError<Promocao>(`getPromocao data=${data}`))
+    );
+  }
 
   addPromocao (promocao): Observable<Promocao> {
     const url = `${apiUrl}/promocoes`;

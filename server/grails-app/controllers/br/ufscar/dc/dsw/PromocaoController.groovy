@@ -5,6 +5,7 @@ import grails.rest.*
 import grails.converters.*
 import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_TEATRO', 'ROLE_ADMIN'])
 class PromocaoController extends RestfulController {
     static responseFormats = ['json', 'xml']
     PromocaoController() {
@@ -29,13 +30,13 @@ class PromocaoController extends RestfulController {
     //     super.save()
     // }
 
-    @Secured(['ROLE_TEATRO'])
+    @Secured(['ROLE_ADMIN'])
     @Override
     def update() {
         super.update()
     }
 
-    @Secured(['ROLE_TEATRO'])
+    @Secured(['ROLE_ADMIN'])
     @Override
     def delete() {
         super.delete()

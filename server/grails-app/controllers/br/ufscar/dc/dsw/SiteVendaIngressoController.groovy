@@ -5,7 +5,7 @@ import grails.rest.*
 import grails.converters.*
 import grails.plugin.springsecurity.annotation.Secured
 
-// @Secured(['ROLE_SITE', 'ROLE_ADMIN'])
+ @Secured(['ROLE_ADMIN', 'ROLE_ADMIN'])
 class SiteVendaIngressoController extends RestfulController {
     static responseFormats = ['json', 'xml']
     SiteVendaIngressoController() {

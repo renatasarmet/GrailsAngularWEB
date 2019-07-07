@@ -11,6 +11,8 @@ class UrlMappings {
         // patch "/$controller/$id(.$format)?"(action:"patch")
         "/sites"(resources: "siteVendaIngresso")
         "/teatros"(resources: "teatro")
+        "/promocoes"(resources: "promocao")
+        "/promocao-cadastro"(resources: "promocao", "teatro", "siteVendaIngresso")
         // "/"(controller: 'application', action:'index')
         "500"(view: '/error')
         "404"(view: '/notFound')
