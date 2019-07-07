@@ -11,4 +11,34 @@ class TeatroController extends RestfulController {
     TeatroController() {
         super(Teatro)
     }
+
+    @Secured(['ROLE_ADMIN'])
+    @Override
+    def index(Integer max) {
+        super.index(max)
+    }
+
+    @Secured(['ROLE_ADMIN'])
+    @Override
+    def show() {
+        super.show()
+    }
+
+    @Secured(['ROLE_ADMIN'])
+    @Override
+    def save() {
+        super.save()
+    }
+
+    @Secured(['ROLE_ADMIN'])
+    @Override
+    def update() {
+        super.update()
+    }
+
+    @Secured(['ROLE_ADMIN'])
+    @Override
+    def delete() {
+        super.delete()
+    }
 }

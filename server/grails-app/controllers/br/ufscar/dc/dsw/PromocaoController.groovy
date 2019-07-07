@@ -11,4 +11,34 @@ class PromocaoController extends RestfulController {
     PromocaoController() {
         super(Promocao)
     }
+
+    @Secured(['ROLE_TEATRO', 'ROLE_SITE'])
+    @Override
+    def index(Integer max) {
+        super.index(max)
+    }
+
+    @Secured(['ROLE_TEATRO', 'ROLE_SITE'])
+    @Override
+    def show() {
+        super.show()
+    }
+
+    @Secured(['ROLE_TEATRO', 'ROLE_SITE'])
+    @Override
+    def save() {
+        super.save()
+    }
+
+    @Secured(['ROLE_TEATRO', 'ROLE_SITE'])
+    @Override
+    def update() {
+        super.update()
+    }
+
+    @Secured(['ROLE_TEATRO', 'ROLE_SITE'])
+    @Override
+    def delete() {
+        super.delete()
+    }
 }
