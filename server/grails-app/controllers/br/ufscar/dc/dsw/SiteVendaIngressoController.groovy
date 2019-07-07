@@ -12,7 +12,7 @@ class SiteVendaIngressoController extends RestfulController {
         super(SiteVendaIngresso)
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN', 'ROLE_SITE', 'ROLE_TEATRO'])
     @Override
     def index(Integer max) {
         super.index(max)

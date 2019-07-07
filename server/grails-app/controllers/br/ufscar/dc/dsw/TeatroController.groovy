@@ -11,7 +11,7 @@ class TeatroController extends RestfulController {
         super(Teatro)
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN', 'ROLE_SITE', 'ROLE_TEATRO'])
     @Override
     def index(Integer max) {
         super.index(max)

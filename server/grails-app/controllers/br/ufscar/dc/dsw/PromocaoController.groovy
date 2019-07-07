@@ -23,11 +23,11 @@ class PromocaoController extends RestfulController {
         super.show()
     }
 
-    @Secured(['ROLE_TEATRO'])
-    @Override
-    def save() {
-        super.save()
-    }
+    // @Secured(['ROLE_TEATRO'])
+    // @Override
+    // def save() {
+    //     super.save()
+    // }
 
     @Secured(['ROLE_TEATRO'])
     @Override
