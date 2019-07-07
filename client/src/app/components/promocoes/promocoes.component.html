@@ -1,4 +1,13 @@
 <div class="example-container mat-elevation-z8">
+    <mat-form-field>
+        <input matInput placeholder="Filtrar por CNPJ" (blur)="listaPorTeatroCnpj($event.target.value)" />
+    </mat-form-field>
+    <mat-select [(value)]="selected" (selectionChange)="listaPorTeatro(selected)">
+        <mat-option value=""></mat-option>
+        <mat-option *ngFor="let teatro of allTeatros" [value]="teatro.id">
+            {{ teatro.nome }}
+        </mat-option>
+    </mat-select>
     <div class="example-loading-shade" *ngIf="isLoadingResults">
         <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
     </div>

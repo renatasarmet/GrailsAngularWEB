@@ -27,7 +27,7 @@ export class TeatrosComponent implements OnInit {
   listaPorCidade(cidade) {
     if (cidade != '') {
       this.teatros = this.allTeatros.filter(t => {
-        return (t.cidade.toString().toUpperCase() == cidade);
+        return (t.cidade == cidade);
       });
     } else {
       this.teatros = this.allTeatros;
