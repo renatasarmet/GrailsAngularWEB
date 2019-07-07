@@ -8,7 +8,7 @@ import { SitesComponent } from './components/sites/sites.component';
 import { SiteDetalhesComponent } from './components/site-detalhes/site-detalhes.component';
 import { SiteCadastroComponent } from './components/site-cadastro/site-cadastro.component';
 import { SiteEdicaoComponent } from './components/site-edicao/site-edicao.component';
-import { PromocaoComponent } from './components/promocao/promocao.component';
+import { PromocoesComponent } from './components/promocoes/promocoes.component';
 import { PromocaoDetalhesComponent } from './components/promocao-detalhes/promocao-detalhes.component';
 import { PromocaoCadastroComponent } from './components/promocao-cadastro/promocao-cadastro.component';
 import { PromocaoEdicaoComponent } from './components/promocao-edicao/promocao-edicao.component';
@@ -41,12 +41,12 @@ const routes: Routes = [
     path:'site-edicao/:id', component: SiteEdicaoComponent, data:{title:'Edicao do Site'}
   },
   {
-    path:'promocao', component: PromocaoComponent, data:{title:'Lista de promocoes'}
+    path:'promocoes', component: PromocoesComponent, data:{title:'Lista de promocoes'}
   },
   {
     path:'promocao-detalhes/:id', component: PromocaoDetalhesComponent, data:{title:'Detalhes da Promocao'}
   },
-  {
+  { 
     path:'promocao-cadastro', component: PromocaoCadastroComponent, data:{title:'Cadastro de Promocao'}
   },
   {
