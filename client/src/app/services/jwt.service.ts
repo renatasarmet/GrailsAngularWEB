@@ -24,6 +24,8 @@ export class JWTService {
   }
 
   logout() {
+    localStorage.removeItem('username');
+    localStorage.removeItem('role');
     localStorage.removeItem('authentication');
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
@@ -38,6 +40,14 @@ export class JWTService {
     return this.httpClient.post<Authentication>(url,payload).pipe(
       tap(_=> console.debug('getAuthentication'))
     );
+  }
+
+  getUsername(): String {
+    return localStorage.getItem('username')
+  }
+
+  getRole(): String {
+    return localStorage.getItem('role')
   }
 
   async refreshToken() {

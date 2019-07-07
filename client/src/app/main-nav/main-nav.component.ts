@@ -24,16 +24,16 @@ export class MainNavComponent {
 
   logout() {
     this.jwtService.logout();
-    this.username = null;
-    this.role = null;
+    this.username = this.jwtService.getUsername();
+    this.role = this.jwtService.getRole();
     this.router.navigate(['/login']);
   }
 
   public get loggedIn(): boolean {
     var logged = localStorage.getItem('access_token') !== null;
     if(logged){
-      this.username = localStorage.getItem('username');
-      this.role = localStorage.getItem('role');
+      this.username = this.jwtService.getUsername();
+      this.role = this.jwtService.getRole();
     } else {
       this.username = null
       this.role = null

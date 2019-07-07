@@ -36,7 +36,7 @@
                 </a>
             </ng-template>
 
-            <ng-template [ngIf]="role == ''">
+            <ng-template [ngIf]="role == null">
                 <a mat-list-item [routerLink]="['/sites']">
                   Sites
                 </a>
@@ -65,12 +65,14 @@
                     <h1>Projeto WEB 3</h1>
                 </div>
             </span>
-            <span class="spacer"></span>
-            <span>
+            <ng-template [ngIf]="role !== null">
+                <span class="spacer"></span>
+                <span>
               <div style="text-align:center">
                   <b>Olá, </b><h2>'{{ username }}'</h2>
               </div>
             </span>
+            </ng-template>
         </mat-toolbar>
 
         <ng-content></ng-content>
