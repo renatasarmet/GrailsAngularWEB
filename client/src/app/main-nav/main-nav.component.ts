@@ -22,6 +22,10 @@ export class MainNavComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private jwtService: JWTService, private router: Router) { }
 
+  login() {
+    this.router.navigate(['/login']);
+  }
+
   logout() {
     this.jwtService.logout();
     this.username = this.jwtService.getUsername();

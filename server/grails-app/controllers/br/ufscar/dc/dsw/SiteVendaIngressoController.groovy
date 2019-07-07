@@ -5,20 +5,20 @@ import grails.rest.*
 import grails.converters.*
 import grails.plugin.springsecurity.annotation.Secured
 
- @Secured(['ROLE_ADMIN', 'ROLE_ADMIN'])
+
 class SiteVendaIngressoController extends RestfulController {
     static responseFormats = ['json', 'xml']
     SiteVendaIngressoController() {
         super(SiteVendaIngresso)
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_SITE', 'ROLE_TEATRO'])
+    @Secured(['permitAll()'])
     @Override
     def index(Integer max) {
         super.index(max)
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['permitAll()'])
     @Override
     def show() {
         super.show()

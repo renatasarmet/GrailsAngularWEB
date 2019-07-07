@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { Teatro } from '../../models/teatro';
+import { JWTService } from 'src/app/services/jwt.service';
 
 @Component({
   selector: 'app-teatro-detalhes',
@@ -9,10 +10,11 @@ import { Teatro } from '../../models/teatro';
   styleUrls: ['./teatro-detalhes.component.css']
 })
 export class TeatroDetalhesComponent implements OnInit {
-  teatro: Teatro = { id: '', cnpj: '', nome: '', cidade: '' };
+  teatro: Teatro = { id: '', cnpj: '', nome: '', cidade: '', username: '', password: ''};
   isLoadingResults = true;
+  role: String = null;
 
-  constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private api: ApiService, private router: Router, private jwtService: JWTService) { }
 
   async getData(id) {
     this.teatro = await this.api.getTeatro(id).toPromise();
@@ -21,6 +23,7 @@ export class TeatroDetalhesComponent implements OnInit {
   }
   ngOnInit() {
     this.getData(this.route.snapshot.params['id']);
+    this.role = this.jwtService.getRole();
   }
 
   deleteTeatro(id) {

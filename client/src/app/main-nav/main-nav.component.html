@@ -53,6 +53,11 @@
                     Logout
                 </a>
             </ng-template>
+            <ng-template mat-flat-item [ngIf]="!loggedIn">
+                <a mat-flat-button color="primary" style="color: white" (click)="login()">
+                  Login
+              </a>
+            </ng-template>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

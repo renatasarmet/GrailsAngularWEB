@@ -4,6 +4,7 @@ import { ApiService } from '../../services/api.service';
 import { SiteVendaIngresso } from '../../models/site';
 import { Teatro } from '../../models/teatro';
 import { Promocao } from '../../models/promocao';
+import { JWTService } from 'src/app/services/jwt.service';
 
 @Component({
   selector: 'app-promocao-detalhes',  
@@ -14,7 +15,9 @@ export class PromocaoDetalhesComponent implements OnInit {
 
   promocao: Promocao = { id: '', nome: '', preco: null, site: new SiteVendaIngresso(), teatro: new Teatro(), data: '', horario: '' };
   isLoadingResults = true;
-  constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
+  role: String = null;
+
+  constructor(private route: ActivatedRoute, private api: ApiService, private router: Router, private jwtService: JWTService) { }
 
   async getData(id) {
     this.promocao = await this.api.getPromocao(id).toPromise();
@@ -23,6 +26,7 @@ export class PromocaoDetalhesComponent implements OnInit {
   }
   ngOnInit() {
     this.getData(this.route.snapshot.params['id']);
+    this.role = this.jwtService.getRole();
   }
   deletePromocao(id) {
     this.isLoadingResults = true;

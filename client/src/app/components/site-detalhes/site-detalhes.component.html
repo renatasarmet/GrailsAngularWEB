@@ -22,13 +22,15 @@
                 <dd>{{site.telefone}}</dd>
             </dl>
         </mat-card-content>
-        <mat-card-actions>
-            <a mat-flat-button color="primary" [routerLink]="['/site-edicao', site.id]">
-                <mat-icon>edit</mat-icon>
-            </a>
-            <a mat-flat-button color="warn" (click)="deleteSiteVendaIngresso(site.id)">
-                <mat-icon>delete</mat-icon>
-            </a>
-        </mat-card-actions>
+        <ng-template [ngIf]="role == 'ROLE_ADMIN'">
+            <mat-card-actions>
+                <a mat-flat-button color="primary" [routerLink]="['/site-edicao', site.id]">
+                    <mat-icon>edit</mat-icon>
+                </a>
+                <a mat-flat-button color="warn" (click)="deleteSiteVendaIngresso(site.id)">
+                    <mat-icon>delete</mat-icon>
+                </a>
+            </mat-card-actions>
+        </ng-template>
     </mat-card>
 </div>

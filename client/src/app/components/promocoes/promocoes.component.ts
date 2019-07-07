@@ -12,31 +12,28 @@ export class PromocoesComponent implements OnInit {
   displayedColumns: string[] = ['nome', 'preco', 'site', 'teatro', 'data', 'horario'];
   promocoes: Promocao[] = [];
   isLoadingResults = true;
+  role: String = null;
+
   constructor(private api: ApiService, private jwtService: JWTService) { }
 
   ngOnInit() {
     this.getData();
+    this.role = this.jwtService.getRole();
   }
 
   async getData() {
     this.promocoes = await this.api.getPromocoes().toPromise();
-
-    if (this.jwtService.getRole() == 'ROLE_SITE'){
-      function filtraPorSite(element, index, array) {
-        return (element.site.username == this.jwtService.getUsername());
-      }
-
-      this.promocoes = this.promocoes.filter(filtraPorSite);
-      
-    } else if (this.jwtService.getRole() == 'ROLE_TEATRO') {
-
-      function filtraPorTeatro(element, index, array) {
-        return (element.teatro.username == this.jwtService.getUsername());
-      }
-
-      this.promocoes = this.promocoes.filter(filtraPorTeatro);
-    }
     this.isLoadingResults = false;
+    
+    if (this.role == 'ROLE_SITE'){
+      this.promocoes = this.promocoes.filter(p => {
+        return (p.site.username == this.jwtService.getUsername());
+      });    
+    } else if (this.role == 'ROLE_TEATRO') {
+      this.promocoes = this.promocoes.filter(p => {
+        return (p.teatro.username == this.jwtService.getUsername());
+      });
+    }
     console.debug('No issues, I will wait until promise is resolved..');
   }
 
