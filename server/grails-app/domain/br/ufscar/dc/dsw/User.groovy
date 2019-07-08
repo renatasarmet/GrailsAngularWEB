@@ -3,6 +3,7 @@ package br.ufscar.dc.dsw
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import grails.compiler.GrailsCompileStatic
+import org.springframework.web.context.request.RequestContextHolder
 
 @GrailsCompileStatic
 @EqualsAndHashCode(includes='username')

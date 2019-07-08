@@ -20,6 +20,8 @@ export class TeatroEdicaoComponent implements OnInit {
   ngOnInit() {
     this.isLoadingResults = true;
     this.teatroForm = this.formBuilder.group({
+      username:[null, Validators.required],
+      password:[null, Validators.required],
       cnpj: [null, Validators.required],
       nome: [null, Validators.required],
       cidade: [null, Validators.required]
@@ -31,6 +33,8 @@ export class TeatroEdicaoComponent implements OnInit {
     let teatro: Teatro = await this.api.getTeatro(id).toPromise();
     this.id = teatro.id;
     this.teatroForm.setValue({
+      username: teatro.username,
+      password: '',
       cnpj: teatro.cnpj,
       nome: teatro.nome,
       cidade: teatro.cidade

@@ -10,7 +10,7 @@ import { JWTService } from 'src/app/services/jwt.service';
   styleUrls: ['./teatro-detalhes.component.css']
 })
 export class TeatroDetalhesComponent implements OnInit {
-  teatro: Teatro = { id: '', cnpj: '', nome: '', cidade: '', username: '', password: ''};
+  teatro: Teatro = { id: '',username:'', password:'', cnpj: '', nome: '', cidade: '' };
   isLoadingResults = true;
   role: String = null;
 

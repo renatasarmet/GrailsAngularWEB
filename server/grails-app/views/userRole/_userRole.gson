@@ -1,0 +1,17 @@
+import br.ufscar.dc.dsw.UserRole
+
+model {
+	UserRole userRole
+}
+
+json {
+    user {
+        id userRole.user.id
+		username userRole.user.username
+		password userRole.user.password
+    }
+    role {
+        id userRole.role.id
+        authority userRole.role.authority
+    }
+}

@@ -9,7 +9,7 @@ import { JWTService } from '../../services/jwt.service';
   styleUrls: ['./sites.component.css']
 })
 export class SitesComponent implements OnInit {
-  displayedColumns: string[] = ['url', 'nome', 'telefone']
+  displayedColumns: string[] = ['email','url', 'nome', 'telefone']
   sites: SiteVendaIngresso[]
   isLoadingResults = true;
   role: String = null;

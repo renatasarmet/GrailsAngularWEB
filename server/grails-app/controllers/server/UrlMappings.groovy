@@ -11,6 +11,8 @@ class UrlMappings {
         // patch "/$controller/$id(.$format)?"(action:"patch")
         "/sites"(resources: "siteVendaIngresso")
         "/teatros"(resources: "teatro")
+        "/roles"(resources: "role")
+        "/userRoles"(resources: "userRole")
         "/promocoes"(resources: "promocao")
         "/promocao-cadastro"(resources: "promocao", "teatro", "siteVendaIngresso")
         // "/"(controller: 'application', action:'index')

@@ -11,7 +11,7 @@ import { JWTService } from '../../services/jwt.service'
 })
 export class TeatrosComponent implements OnInit {
 
-  displayedColumns: string[] = ['cnpj', 'nome', 'cidade'];
+  displayedColumns: string[] = ['email','cnpj', 'nome', 'cidade'];
   teatros: Teatro[] = [];
   allTeatros: Teatro[] =[];
   isLoadingResults = true;

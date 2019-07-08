@@ -15,13 +15,14 @@ class BootStrap {
         Role roleTeatro = new Role(authority: 'ROLE_TEATRO').save()
 
         User admin = new User(username: "admin", password: "admin").save()
-        UserRole.create(admin, roleAdmin, true)
+        UserRole.create(admin, roleAdmin)
 
         Teatro t = new Teatro(
             username: "teatro", password: "teatro",
             cnpj: '123', nome: 'Teatro bom', cidade: 'Maceio')
         t.save()
-        UserRole.create(t, roleTeatro, true)
+        UserRole teatroRole = new UserRole(t, roleTeatro).save()
+        //UserRole.create(t, roleTeatro, true)
 
         SiteVendaIngresso s = new SiteVendaIngresso(
             username: "site", password: "site",
@@ -29,7 +30,7 @@ class BootStrap {
             )
 
         s.save()
-        UserRole.create(s, roleSite, true)
+        UserRole.create(s, roleSite)
 	
         Promocao p = new Promocao(nome: 'Promoca', preco:10.10, site:s, teatro:t, data:'12/02/2019', horario:'21:00')
         p.save()

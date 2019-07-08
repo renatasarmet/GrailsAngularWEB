@@ -10,7 +10,7 @@ import { JWTService } from 'src/app/services/jwt.service';
   styleUrls: ['./site-detalhes.component.css']
 })
 export class SiteDetalhesComponent implements OnInit {
-  site: SiteVendaIngresso = {id: '', url: '', nome: '', telefone: '', username: '', password: ''};
+  site: SiteVendaIngresso = {id: '',username:'', password:'', url: '', nome: '', telefone: ''};
   isLoadingResults = true;
   role: String = null;
 

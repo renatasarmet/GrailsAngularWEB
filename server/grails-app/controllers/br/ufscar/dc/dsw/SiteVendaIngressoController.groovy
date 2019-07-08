@@ -3,6 +3,7 @@ package br.ufscar.dc.dsw
 
 import grails.rest.*
 import grails.converters.*
+import br.ufscar.dc.dsw.UserRole
 import grails.plugin.springsecurity.annotation.Secured
 
 

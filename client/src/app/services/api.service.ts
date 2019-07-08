@@ -5,6 +5,8 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { Teatro } from '../models/teatro';
 import { SiteVendaIngresso } from '../models/site';
 import { Promocao } from '../models/promocao';
+import { Role } from '../models/role';
+import { UserRole } from '../models/userRole';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -127,13 +129,6 @@ export class ApiService {
       catchError(this.handleError<Promocao>(`getPromocao id=${id}`))
     );
   }
-  getPromocaoData(data: String): Observable<Promocao> {
-    const url = `${apiUrl}/promocoes/${data}`;
-    return this.http.get<Promocao>(url).pipe(
-      tap(_ => console.log(`getPromocao data=${data}`)),
-      catchError(this.handleError<Promocao>(`getPromocao data=${data}`))
-    );
-  }
 
   addPromocao (promocao): Observable<Promocao> {
     const url = `${apiUrl}/promocoes`;
@@ -159,6 +154,27 @@ export class ApiService {
     );
   }
 
+  getRoleTeatro(): Observable<Role> {
+    const url = `${apiUrl}/roles/3`;
+    return this.http.get<Role>(url).pipe(
+      tap(_ => console.log(`getRoleTeatro`)),
+      catchError(this.handleError<Role>(`getRoleTeatro`))
+    );
+  }
+  getRoleSite(): Observable<Role> {
+    const url = `${apiUrl}/roles/2`;
+    return this.http.get<Role>(url).pipe(
+      tap(_ => console.log(`getRoleSite`)),
+      catchError(this.handleError<Role>(`getRoleSite`))
+    );
+  }
+  addUserRole(userRole): Observable<UserRole> {
+    const url = `${apiUrl}/userRoles`;
+    return this.http.post<UserRole>(url, userRole,httpOptions).pipe(
+      tap((userRole: UserRole) => console.log(`addUserRole w/id=${userRole.id}`)),
+      catchError(this.handleError<UserRole>('addUserRole'))
+    );
+  }
 
 }
 

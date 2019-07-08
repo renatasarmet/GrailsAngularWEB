@@ -9,6 +9,18 @@
     </div>
     <mat-card class="example-card">
       <form [formGroup]="teatroForm" (ngSubmit)="onFormSubmit(teatroForm.value)">
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="email" formControlName="username" [errorStateMatcher]="matcher">
+              <mat-error>
+                  <span *ngIf="!teatroForm.get('username').valid && teatroForm.get('username').touched">Por favor entre o email</span>
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+                  <input matInput placeholder="password" formControlName="password" [errorStateMatcher]="matcher">
+                  <mat-error>
+                      <span *ngIf="!teatroForm.get('password').valid && teatroForm.get('password').touched">Por favor entre o password</span>
+                  </mat-error>
+          </mat-form-field>    
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Cnpj" formControlName="cnpj" [errorStateMatcher]="matcher">
           <mat-error>

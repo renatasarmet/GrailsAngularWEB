@@ -6,14 +6,21 @@ import groovy.transform.ToString
 import org.codehaus.groovy.util.HashCodeHelper
 import grails.compiler.GrailsCompileStatic
 
+import grails.rest.*
+
 @GrailsCompileStatic
 @ToString(cache=true, includeNames=true, includePackage=false)
+@Resource(uri='/userRoles', readOnly = false, formats = ['json', 'xml'])
 class UserRole implements Serializable {
 
 	private static final long serialVersionUID = 1
 
 	User user
 	Role role
+
+	UserRole (User u, Role r){
+		UserRole.create(u,r);	
+	}
 
 	@Override
 	boolean equals(other) {
@@ -49,9 +56,9 @@ class UserRole implements Serializable {
 		}
 	}
 
-	static UserRole create(User user, Role role, boolean flush = false) {
+	static UserRole create(User user, Role role) {
 		def instance = new UserRole(user: user, role: role)
-		instance.save(flush: flush)
+		instance.save(flush: true)
 		instance
 	}
 
@@ -61,8 +68,9 @@ class UserRole implements Serializable {
 		}
 	}
 
-	static int removeAll(User u) {
-		u == null ? 0 : UserRole.where { user == u }.deleteAll() as int
+	static void removeAllUser(User u) {
+		if(u != null)
+			UserRole.where { user == u }.deleteAll()
 	}
 
 	static int removeAll(Role r) {
@@ -81,7 +89,6 @@ class UserRole implements Serializable {
 	}
 
 	static mapping = {
-		id composite: ['user', 'role']
 		version false
 	}
 }

@@ -1,0 +1,8 @@
+import br.ufscar.dc.dsw.UserRole
+
+model {
+	Iterable<UserRole> userRoleList
+}
+
+json tmpl.userRole(userRoleList ?: [])
+

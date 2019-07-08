@@ -20,6 +20,8 @@ export class SiteEdicaoComponent implements OnInit {
   ngOnInit() {
     this.isLoadingResults = true;
     this.siteForm = this.formBuilder.group({
+      username:[null, Validators.required],
+      password:[null, Validators.required],
       url: [null, Validators.required],
       nome: [null, Validators.required],
       telefone: [null, Validators.required],
@@ -31,6 +33,8 @@ export class SiteEdicaoComponent implements OnInit {
     let site: SiteVendaIngresso = await this.api.getSiteVendaIngresso(id).toPromise();
     this.id = site.id;
     this.siteForm.setValue({
+      username: site.username,
+      password: '',
       url: site.url,
       nome: site.nome,
       telefone: site.telefone,

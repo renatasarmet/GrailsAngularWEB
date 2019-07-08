@@ -8,4 +8,9 @@ class Teatro extends User{
     String cnpj;
     String nome;
     String cidade;
+
+    def beforeDelete() { 
+        if(super.username != null)
+		    UserRole.removeAllUser(super)
+	}
 }
