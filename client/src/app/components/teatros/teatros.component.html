@@ -15,30 +15,29 @@
     </ng-template>
 
     <div class="mat-elevation-z8">
-      <table mat-table [dataSource]="teatros" class="example-table"
-             matSort matSortActive="username" matSortDisableClear matSortDirection="asc">
-        <!-- Coluna Email -->
-        <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef>Email</th>
-            <td mat-cell *matCellDef="let row">{{row.username}}</td>
-          </ng-container>
-        <!-- Coluna Cnpj -->
-        <ng-container matColumnDef="cnpj">
-          <th mat-header-cell *matHeaderCellDef>CNPJ</th>
-          <td mat-cell *matCellDef="let row">{{row.cnpj}}</td>
-        </ng-container>
-        <!-- Coluna Nome -->
-        <ng-container matColumnDef="nome">
-          <th mat-header-cell *matHeaderCellDef>Nome</th>
-          <td mat-cell *matCellDef="let row">{{row.nome}}</td>
-        </ng-container>
-        <!-- Coluna Cidade -->
-        <ng-container matColumnDef="cidade">
-          <th mat-header-cell *matHeaderCellDef>Cidade</th>
-          <td mat-cell *matCellDef="let row">{{row.cidade}}</td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/teatro-detalhes/', row.id]"></tr>
-      </table>
+        <table mat-table [dataSource]="teatros" class="example-table" matSort matSortActive="username" matSortDisableClear matSortDirection="asc">
+            <!-- Coluna Email -->
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef>Email</th>
+                <td mat-cell *matCellDef="let row">{{row.username}}</td>
+            </ng-container>
+            <!-- Coluna Cnpj -->
+            <ng-container matColumnDef="cnpj">
+                <th mat-header-cell *matHeaderCellDef>CNPJ</th>
+                <td mat-cell *matCellDef="let row">{{row.cnpj | mask: '00.000.000/0000-00' }}</td>
+            </ng-container>
+            <!-- Coluna Nome -->
+            <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef>Nome</th>
+                <td mat-cell *matCellDef="let row">{{row.nome}}</td>
+            </ng-container>
+            <!-- Coluna Cidade -->
+            <ng-container matColumnDef="cidade">
+                <th mat-header-cell *matHeaderCellDef>Cidade</th>
+                <td mat-cell *matCellDef="let row">{{row.cidade}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/teatro-detalhes/', row.id]"></tr>
+        </table>
     </div>
 </div>

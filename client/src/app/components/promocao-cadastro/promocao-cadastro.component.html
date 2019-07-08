@@ -12,12 +12,11 @@
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Nome" formControlName="nome" [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!promocaoForm.get('nome').valid && promocaoForm.get('nome').touched">Por favor entre o
-                nome</span>
+                    <span *ngIf="!promocaoForm.get('nome').valid && promocaoForm.get('nome').touched">Por favor entre o nome</span>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Preço" formControlName="preco" type="number" [errorStateMatcher]="matcher">
+                <input matInput placeholder="Preço" formControlName="preco" sufix=" R$" [errorStateMatcher]="matcher" mask="0*.00">
                 <mat-error>
                     <span *ngIf="!promocaoForm.get('preco').valid && promocaoForm.get('preco').touched">Por favor entre o preço</span>
                 </mat-error>
@@ -39,17 +38,15 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Data" formControlName="data" [errorStateMatcher]="matcher">
+                <input matInput placeholder="Data" type="date" formControlName="data" [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!promocaoForm.get('data').valid && promocaoForm.get('data').touched">Por favor entre o
-                  data</span>
+                    <span *ngIf="!promocaoForm.get('data').valid && promocaoForm.get('data').touched">Por favor insira a data</span>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Horario" formControlName="horario" [errorStateMatcher]="matcher">
+                <input matInput placeholder="Horario" formControlName="horario" mask="Hh:m0:s0" [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!promocaoForm.get('horario').valid && promocaoForm.get('horario').touched">Por favor entre o
-                horario</span>
+                    <span *ngIf="!promocaoForm.get('horario').valid && promocaoForm.get('horario').touched">Por favor entre o horário</span>
                 </mat-error>
             </mat-form-field>
             <div class="button-row">

@@ -14,8 +14,8 @@
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="sites" class="example-table" matSort matSortActive="nome" matSortDisableClear matSortDirection="asc">
             <ng-container matColumnDef="email">
-                    <th mat-header-cell *matHeaderCellDef>email</th>
-                    <td mat-cell *matCellDef="let row">{{row.username}}</td>
+                <th mat-header-cell *matHeaderCellDef>email</th>
+                <td mat-cell *matCellDef="let row">{{row.username}}</td>
             </ng-container>
             <!-- Coluna url -->
             <ng-container matColumnDef="url">
@@ -30,7 +30,7 @@
             <!-- Coluna telefone -->
             <ng-container matColumnDef="telefone">
                 <th mat-header-cell *matHeaderCellDef>telefone</th>
-                <td mat-cell *matCellDef="let row">{{row.telefone}}</td>
+                <td mat-cell *matCellDef="let row">{{row.telefone | mask: '(009) 00009-0000'}}</td>
             </ng-container>
             <!-- Coluna Editora -->
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

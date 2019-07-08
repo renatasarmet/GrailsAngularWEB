@@ -12,7 +12,7 @@
             <mat-card-title>
                 <h2>{{promocao.nome}}</h2>
             </mat-card-title>
-            <mat-card-subtitle>{{promocao.horario}} - {{promocao.data}}</mat-card-subtitle>
+            <mat-card-subtitle>{{promocao.horario | mask: 'Hh:m0:s0'}} - {{promocao.data}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
             <dl>

@@ -37,6 +37,9 @@ import { AlertComponent } from './components/alert/alert.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import {NgxMaskModule, IConfig} from 'ngx-mask'
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
@@ -58,6 +61,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     MainNavComponent
   ],
   imports: [
+    NgxMaskModule.forRoot(options),
     BrowserModule,
     FormsModule,
     HttpClientModule,

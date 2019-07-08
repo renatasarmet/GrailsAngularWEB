@@ -12,41 +12,41 @@
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="nome" formControlName="nome" [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!promocaoForm.get('nome').valid && promocaoForm.get('nome').touched">Por favor entre com o url</span>
+                    <span *ngIf="!promocaoForm.get('nome').valid && promocaoForm.get('nome').touched">Por favor entre com o nome</span>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="preco" formControlName="preco" [errorStateMatcher]="matcher">
+                <input matInput placeholder="preco" formControlName="preco" sufix=" R$" [errorStateMatcher]="matcher" mask="0*.00">
                 <mat-error>
-                    <span *ngIf="!promocaoForm.get('preco').valid && promocaoForm.get('preco').touched">Por favor entre com o nome</span>
+                    <span *ngIf="!promocaoForm.get('preco').valid && promocaoForm.get('preco').touched">Por favor entre com o preço</span>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
                 <mat-label>Site</mat-label>
                 <mat-select formControlName="site" [(value)]="selected_site.id">
                     <mat-option *ngFor="let site of sites" [value]="site.id">
-                    {{site.url}}
+                        {{site.url}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                    <mat-label>Teatro</mat-label>
-                    <mat-select formControlName="teatro" [(value)]="selected_teatro.id">
-                        <mat-option *ngFor="let teatro of teatros" [value]="teatro.id">
+                <mat-label>Teatro</mat-label>
+                <mat-select formControlName="teatro" [(value)]="selected_teatro.id">
+                    <mat-option *ngFor="let teatro of teatros" [value]="teatro.id">
                         {{teatro.cnpj}}
-                        </mat-option>
-                    </mat-select>
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="data" formControlName="data" [errorStateMatcher]="matcher">
+                <input matInput placeholder="data" formControlName="data" type="date" [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!promocaoForm.get('data').valid && promocaoForm.get('data').touched">Por favor entre com o telefone</span>
+                    <span *ngIf="!promocaoForm.get('data').valid && promocaoForm.get('data').touched">Por favor insira a data</span>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="horario" formControlName="horario" [errorStateMatcher]="matcher">
+                <input matInput placeholder="horario" formControlName="horario" mask="Hh:m0:s0" [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!promocaoForm.get('horario').valid && promocaoForm.get('horario').touched">Por favor entre com o telefone</span>
+                    <span *ngIf="!promocaoForm.get('horario').valid && promocaoForm.get('horario').touched">Por favor entre com o horário</span>
                 </mat-error>
             </mat-form-field>
             <div class="button-row">

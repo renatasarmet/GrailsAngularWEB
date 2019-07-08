@@ -10,9 +10,9 @@
     <mat-card class="example-card">
         <form [formGroup]="siteForm" (ngSubmit)="onFormSubmit(siteForm.value)">
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="email" formControlName="username" [errorStateMatcher]="matcher">
+                <input matInput placeholder="email" formControlName="username" mask="A*@A*.A*" [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!siteForm.get('username').valid && siteForm.get('username').touched">Por favor entre com o email</span>
+                    <span *ngIf="!siteForm.get('username').valid && siteForm.get('username').touched">Por favor entre com o e-mail</span>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
@@ -30,13 +30,13 @@
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="nome" formControlName="nome" [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!siteForm.get('nome').valid && siteForm.get('nome').touched">Por favor entre com o nome</span>
+                    <span *ngIf="!siteForm.get('nome').valid && siteForm.get('nome').touched">Por favor entre com com o nome</span>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="telefone" formControlName="telefone" [errorStateMatcher]="matcher">
+                <input matInput placeholder="telefone" formControlName="telefone" mask="(009) 00009-0000" [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!siteForm.get('telefone').valid && siteForm.get('telefone').touched">Por favor entre com o telefone</span>
+                    <span *ngIf="!siteForm.get('telefone').valid && siteForm.get('telefone').touched">Por favor entre com com o telefone</span>
                 </mat-error>
             </mat-form-field>
             <div class="button-row">
