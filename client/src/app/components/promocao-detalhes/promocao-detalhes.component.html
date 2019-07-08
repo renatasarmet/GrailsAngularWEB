@@ -16,9 +16,9 @@
         </mat-card-header>
         <mat-card-content>
             <dl>
-                <dt>Preço:  {{promocao.preco}}</dt>
+                <dt>Preço:  {{promocao.preco | mask: '0*.00'}}</dt>
                 <dt>Site :  {{promocao.site.url}}</dt>
-                <dt>Teatro:  {{promocao.teatro.cnpj}}</dt>
+                <dt>Teatro:  {{promocao.teatro.cnpj | mask: '00.000.000/0000-00'}}</dt>
             </dl>
         </mat-card-content>
         <ng-template [ngIf]="role == 'ROLE_TEATRO'">
