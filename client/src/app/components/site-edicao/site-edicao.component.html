@@ -10,17 +10,17 @@
     <mat-card class="example-card">
         <form [formGroup]="siteForm" (ngSubmit)="onFormSubmit(siteForm.value)">
             <mat-form-field class="example-full-width">
-                        <input matInput placeholder="email" formControlName="username" [errorStateMatcher]="matcher">
-                        <mat-error>
-                            <span *ngIf="!siteForm.get('username').valid && siteForm.get('username').touched">Por favor entre com o email</span>
-                        </mat-error>
+                <input matInput placeholder="email" formControlName="username" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!siteForm.get('username').valid && siteForm.get('username').touched">Por favor entre com o email</span>
+                </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                    <input matInput placeholder="senha" formControlName="password" [errorStateMatcher]="matcher">
-                    <mat-error>
-                        <span *ngIf="!siteForm.get('password').valid && siteForm.get('password').touched">Por favor entre com a senha</span>
-                    </mat-error>
-                </mat-form-field>
+                <input matInput placeholder="senha" type="password" formControlName="password" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!siteForm.get('password').valid && siteForm.get('password').touched">Por favor entre com a senha</span>
+                </mat-error>
+            </mat-form-field>
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="url" formControlName="url" [errorStateMatcher]="matcher">
                 <mat-error>

@@ -16,11 +16,11 @@
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                    <input matInput placeholder="password" formControlName="password" [errorStateMatcher]="matcher">
-                    <mat-error>
-                        <span *ngIf="!siteForm.get('password').valid && siteForm.get('password').touched">Por favor entre o password</span>
-                    </mat-error>
-            </mat-form-field>            
+                <input matInput placeholder="password" type="password" formControlName="password" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!siteForm.get('password').valid && siteForm.get('password').touched">Por favor entre o password</span>
+                </mat-error>
+            </mat-form-field>
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="url" formControlName="url" [errorStateMatcher]="matcher">
                 <mat-error>

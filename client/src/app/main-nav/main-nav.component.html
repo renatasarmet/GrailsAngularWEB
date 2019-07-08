@@ -6,14 +6,14 @@
                 <a mat-list-item [routerLink]="['/promocoes']">
                   Promocoes
                 </a>
-                <a mat-list-item [routerLink]="['/promocao-cadastro']">
-                  Cadastrar promoção
-                </a>
             </ng-template>
 
             <ng-template [ngIf]="role == 'ROLE_TEATRO'">
                 <a mat-list-item [routerLink]="['/promocoes']">
                     Promocoes
+                </a>
+                <a mat-list-item [routerLink]="['/promocao-cadastro']">
+                  Cadastrar promoção
                 </a>
             </ng-template>
 

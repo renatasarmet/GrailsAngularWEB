@@ -53,12 +53,18 @@ export class PromocoesComponent implements OnInit {
     if (this.role == 'ROLE_SITE'){
       this.promocoes = this.promocoes.filter(p => {
         return (p.site.username == this.jwtService.getUsername());
-      });    
+      });
     } else if (this.role == 'ROLE_TEATRO') {
       this.promocoes = this.promocoes.filter(p => {
         return (p.teatro.username == this.jwtService.getUsername());
       });
+      this.allTeatros = this.allTeatros.filter(t => {
+        var user = this.jwtService.getUsername()
+        console.log(t.username, user)
+        return (t.username == user);
+      });
     }
+    console.log(this.allTeatros);
     this.allPromocoes = this.promocoes;
     console.debug('No issues, I will wait until promise is resolved..');
   }

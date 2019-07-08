@@ -8,6 +8,7 @@ import { Teatro } from '../../models/teatro';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Promocao } from 'src/app/models/promocao';
 import { AlertService} from '../../services/alert.service'
+import { JWTService } from 'src/app/services/jwt.service';
 
 @Component({
   selector: 'app-promocao-cadastro',
@@ -23,7 +24,7 @@ export class PromocaoCadastroComponent implements OnInit {
   valido = true;
   isLoadingResults = false;
 
-  constructor(private alertService: AlertService,private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }
+  constructor(private alertService: AlertService,private router: Router, private api: ApiService, private formBuilder: FormBuilder, private jwtService: JWTService) { }
 
   ngOnInit() {
     this.promocaoForm = this.formBuilder.group({
@@ -40,6 +41,10 @@ export class PromocaoCadastroComponent implements OnInit {
   async getData() {
     this.sites = await this.api.getSiteVendaIngressos().toPromise();
     this.teatros = await this.api.getTeatros().toPromise();
+    this.teatros = this.teatros.filter(t => {
+      var user = this.jwtService.getUsername()
+      return (t.username == user);
+    });
     this.promocoes = await this.api.getPromocoes().toPromise();
     this.isLoadingResults = false;
     console.debug('No issues, I will wait until promise is resolved..');

@@ -25,8 +25,8 @@ export class TeatroCadastroComponent implements OnInit {
   ngOnInit() {
     this.teatroForm = this.formBuilder.group({
 
-      username:[null, Validators.required],
-      password:[null, Validators.required],
+      username: [null, Validators.required],
+      password: [null, Validators.required],
       cnpj: [null, Validators.required],
       nome: [null, Validators.required],
       cidade: [null, Validators.required]
@@ -35,10 +35,10 @@ export class TeatroCadastroComponent implements OnInit {
   }
 
   async getData() {
-     this.isLoadingResults = false;
-     this.role = new Role();
-    this.role = await this.api.getRoleSite().toPromise();
-     console.debug('No issues, I will wait until promise is resolved..');
+    this.isLoadingResults = false;
+    this.role = new Role();
+    this.role = await this.api.getRoleTeatro().toPromise();
+    console.debug('No issues, I will wait until promise is resolved..');
   }
 
   onFormSubmit(form: NgForm) {
@@ -48,25 +48,25 @@ export class TeatroCadastroComponent implements OnInit {
     this.usuario.username = form['username'];
     this.usuario.password = form['password'];
     this.userRole.role = this.role;
-    this.userRole.user=this.usuario;
+    this.userRole.user = this.usuario;
     this.api.addTeatro(form)
       .subscribe(res => {
         let id = res['id'];
         this.isLoadingResults = false;
-        this.userRole.user.id=id;
+        this.userRole.user.id = id;
         this.api.addUserRole(this.userRole)
-        .subscribe(ress => {
-          let id = ress['id'];
-          console.log("Cadastro role feito")
-        }, (err) => {
-          console.log(err);
-          this.isLoadingResults = false;
-        });
+          .subscribe(ress => {
+            let id = ress['id'];
+            console.log("Cadastro role feito")
+          }, (err) => {
+            console.log(err);
+            this.isLoadingResults = false;
+          });
         this.router.navigate(['/teatro-detalhes', id]);
       }, (err) => {
         console.log(err);
         this.isLoadingResults = false;
-      });  
+      });
   }
 
 }
